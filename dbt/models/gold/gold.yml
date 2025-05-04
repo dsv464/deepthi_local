@@ -1,0 +1,8 @@
+version: 2
+
+  - name: customer_invoices_mart
+    columns:
+      - name: invoice_id
+        data_tests:
+          - unique
+          - not_null
