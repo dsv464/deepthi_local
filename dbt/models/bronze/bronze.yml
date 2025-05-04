@@ -1,0 +1,45 @@
+
+version: 2
+
+
+sources:
+  - name: raw
+    tables:
+      - name: abrechnung_rechnungen
+      - name: abrechnung_positionen
+      - name: abrechnung_kunden
+
+models:
+  - name: stg_abrechnung_rechnungen
+    columns:
+      - name: renummer
+        data_tests:
+          - unique
+          - not_null
+      - name: kdnr
+        data_tests:
+          - not_null
+          - reid_kdnr_rechnungen_reconcile
+
+  - name: stg_abrechnung_positionen
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+      - name: reid
+        data_tests:
+          - not_null
+      - name: kdnr
+        data_tests:
+          - not_null
+          - reid_kdnr_positionen_reconcile
+  
+  - name: stg_abrechnung_kunden
+    description: "A starter dbt model"
+    columns:
+      - name: kdnr
+        data_tests:
+          - unique
+          - not_null
