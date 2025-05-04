@@ -1,0 +1,22 @@
+version: 2
+
+  - name: int_positionen
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+  
+    - name: int_rechnungen
+      columns:
+        - name: renummer
+          data_tests:
+            - unique
+            - not_null
+
+    - name: int_kunden
+      columns:
+        - name: kdnr
+          data_tests:
+            - unique
+            - not_null
